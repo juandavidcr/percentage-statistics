@@ -1,0 +1,244 @@
+{
+    "nodes":[{
+        "name": "Letonia",
+        "group": "Europa",
+        "r":18.1
+    },{
+        "name": "Estonia",
+        "group": "Europa",
+        "r":17.5
+    },{
+        "name": "España",
+        "group": "Europa",
+        "r":7.6
+    },{
+        "name": "Islandia",
+        "group": "Europa",
+        "r":13.8
+    },{
+        "name": "Dinamarca",
+        "group": "Europa",
+        "r":10.6
+    },{
+        "name": "Luxemburgo",
+        "group": "Europa",
+        "r":11.8
+    },{
+        "name": "Suecia",
+        "group": "Europa",
+        "r":11.4
+    },{
+        "name": "Lituania",
+        "group": "Europa",
+        "r":29.8
+    },{
+        "name": "Eslovaquia",
+        "group": "Europa",
+        "r":9.7
+    },{
+        "name": "Hungria",
+        "group": "Europa",
+        "r":17.8
+    },{
+        "name": "Austria",
+        "group": "Europa",
+        "r":13.9
+    },{
+        "name": "Repubica Checa",
+        "group": "Europa",
+        "r":13.3
+    },{
+        "name": "Belgica",
+        "group": "Europa",
+        "r":16.1
+    },{
+        "name": "Holanda",
+        "group": "Europa",
+        "r":10.4
+    },{
+        "name": "Grecia",
+        "group": "Europa",
+        "r":4.7
+    },{
+        "name": "Finlandia",
+        "group": "Europa",
+        "r":14.1
+    },{
+        "name": "Eslovenia",
+        "group": "Europa",
+        "r":16.9
+    },{
+        "name": "Polonia",
+        "group": "Europa",
+        "r":14.8
+    },{
+        "name": "Brasil",
+        "group": "Americano",
+        "r":5.7
+    },{
+        "name": "Noruega",
+        "group": "Europa",
+        "r":10.5
+    },{
+        "name": "Portugal",
+        "group": "Europa",
+        "r":10
+    },{
+        "name": "Alemania",
+        "group": "Europa",
+        "r":10.8
+    },{
+        "name": "Costa Rica",
+        "group": "Americano",
+        "r":5.7
+    },{
+        "name": "Sudafrica",
+        "group": "Africa",
+        "r":1.2
+    },{
+        "name": "Estados Unidos de America",
+        "group": "Americano",
+        "r":13.5
+    },{
+        "name": "Japon",
+        "group": "Asia",
+        "r":17.6
+    },{
+        "name": "Chile",
+        "group": "Americano",
+        "r":10.4
+    },{
+        "name": "Israel",
+        "group": "Asia",
+        "r":5.5
+    },{
+        "name": "Australia",
+        "group": "Oceania",
+        "r":12.2
+    },{
+        "name": "Mexico",
+        "group": "Americano",
+        "r":5.5
+    }],
+        "links": [{
+            "source": 0,
+            "target": 6,
+            "value": 0
+        }, {
+            "source": 1,
+            "target": 6,
+            "value": 1
+        }, {
+            "source": 1,
+            "target": 6,
+            "value": 2
+        }, {
+            "source": 0,
+            "target": 6,
+            "value": 3
+        }, {
+            "source": 1,
+            "target": 6,
+            "value": 4
+        }, {
+            "source": 0,
+            "target": 6,
+            "value": 5
+        }, {
+            "source": 12,
+            "target": 7,
+            "value": 6
+        },{
+            "source": 20,
+            "target": 0,
+            "value": 7
+        },{
+            "source": 20,
+            "target": 8,
+            "value": 8
+        },{
+            "source": 10,
+            "target": 8,
+            "value": 9
+        }, {
+            "source": 1,
+            "target": 5,
+            "value": 10
+        }, {
+            "source": 1,
+            "target": 8,
+            "value": 11
+        }, {
+            "source": 12,
+            "target": 10,
+            "value": 12
+        }, {
+            "source": 10,
+            "target": 17,
+            "value": 13
+        }, {
+            "source": 11,
+            "target": 19,
+            "value": 14
+        }, {
+            "source": 2,
+            "target": 21,
+            "value": 15
+        },{
+            "source": 20,
+            "target": 20,
+            "value": 16
+        },{
+            "source": 20,
+            "target": 13,
+            "value": 17
+        },{
+            "source": 29,
+            "target": 29,
+            "value": 18
+        },{
+            "source": 0,
+            "target": 10,
+            "value": 19
+        }, {
+            "source": 4,
+            "target": 16,
+            "value": 20
+        }, {
+            "source": 29,
+            "target": 29,
+            "value": 21
+        }, {
+            "source": 20,
+            "target": 21,
+            "value": 22
+        },{
+            "source": 25,
+            "target": 27,
+            "value": 24
+        },{
+            "source": 24,
+            "target": 26,
+            "value": 26
+        },{
+            "source": 20,
+            "target": 9,
+            "value": 27
+        },{
+            "source": 20,
+            "target": 21,
+            "value": 28
+        }, {
+            "source": 29,
+            "target": 18,
+            "value": 29
+        }, {
+            "source": 1,
+            "target": 2,
+            "value": 30
+        }, {
+            "source": 18,
+            "target": 24,
+            "value": 31
+        }]
+}

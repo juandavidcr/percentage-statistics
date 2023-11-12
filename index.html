@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Quicksand');
+  *{
+    margin:0;
+    padding:0; 
+  }
+  body{
+    font-style: oblique;
+    font-family: sans-serif;
+    font-family: Quicksand;
+    font-weight: 500;
+  }
+  svg{
+    font-size: 0.8em;
+    border:1px solid rgba(133,133,13,0.5);
+  	position: relative;
+    margin: -350px auto 50px 11.5%;
+    bottom: 1em;
+    left: 1%;
+    }
+    .rotulo{
+      margin-left: 12.5%;
+    }
+  ul > li{
+    margin-left: 15.7%;
+    position: relative;
+    top: 76px;
+    left:0px;
+    padding-top: 0.8em;
+    display: block;
+    border-color: rgba(133,13,33,0.4);
+     
+  }
+  li{
+    list-style-type: square;
+  }
+  .node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+    padding-top:2em;    
+  }
+  .node:hover{
+    cursor: pointer;    
+  }
+  .node text{
+    stroke:#333;
+    cursor:pointer;
+  }
+  .link {
+    stroke: #999;
+    stroke-opacity: .6;
+  }
+  .interface{
+    width: 200px;
+    height: auto;
+    max-height: 20px;
+    display: flex;
+  }
+ 
+</style>
+<body>
+  <nav>
+    <p class="rotulo">
+       El tamaño del circulo <br>representa el porcentaje de<br> suicidios por cada 100k hab.
+    </p>
+</nav>
+  <ul>
+    <li>  
+      <h5>  Fuente: OCDE Estudio del 2014.</h5>
+    </li>
+    <li style="background-color: #08ad00; font-size: 1em; max-width: 2em;">
+       AMERICA      
+    </li>
+    <li style="background-color: #c20076; font-size: 1em; max-width: 2em;">
+      EUROPA      
+    </li>
+    <li style="background-color:#ff3313 ; font-size: 1em; max-width: 2em;">
+      ASIA      
+    </li>
+    <li style="background-color: orange; font-size: 1em; max-width: 2em;">
+      AFRICA      
+    </li>
+    <li style="background-color: cadetblue; font-size: 1em; max-width: 2em;">OCEANÍA
+    </li>
+
+  </ul>
+  
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+  var width  = 1100,
+      height = 900;
+
+  var color = d3.scale.category20();
+
+  var force = d3.layout.force()
+      .charge(-2000)
+      .linkDistance(200)
+      .gravity(0.5)
+      .size([width, height]);
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height);
+  d3.json("paises_continentes.json", function(error, graph) {
+    force
+        .nodes(graph.nodes)
+        .links(graph.links)
+        .start();
+    var link = svg.selectAll("line.link")
+        .data(graph.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+  
+    var node = svg.selectAll("circle.node")
+        .data(graph.nodes)
+        .enter().append("circle")
+        .attr("class", "node")
+        .attr("r", function (d) {
+        	return d.r * 0.99;
+        })
+        .on('mouseover',function() {
+         d3.select(this)          
+          .transition()
+          .duration(600)
+          .attr('r',function(d){
+            return d.r *3.99;
+          })
+          
+        })
+        .on('mouseout',function () {
+         d3.select(this)
+          .transition()
+          .duration(300)
+          .attr('r',function(d){
+            return d.r *1.99;
+          })
+        })
+
+        .attr("fill", function(d) {  
+          switch (d.group){
+                case "Oceania":
+                  return "cadetblue";
+                  break;
+                case "Asia":
+                  return "#ff3313";
+                  break; 
+                case "Africa":
+                  return "orange";
+                  break; 
+                case "Europa":
+                  return "#c20076";
+                  break; 
+                case "Americano":
+                  return "#08ad00";
+                  break;                                     
+              }
+              }).call(force.drag);
+
+  node.append("title")
+        .attr("width",500)
+        .text(function(d) { return d.r+"%"; })
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+  var nodelabels = svg.selectAll(".nodelabel") 
+         .data(graph.nodes)
+         .enter()
+         .append("text")
+         .attr({"x":function(d){return d.x;},
+                "y":function(d){return d.y;},
+                "class":"nodelabel",
+                "stroke":"black"})
+         .text(function(d){return d.name+" "+"( "+d.r+" %)";});
+
+    force.on("tick", function() {
+      link.attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+      node.attr("cx", function(d) { return d.x; })
+          .attr("cy", function(d) { return d.y; });
+      nodelabels.attr("x", function(d) { return d.x; }) 
+                  .attr("y", function(d) { return d.y; })
+                  .text();    
+    });
+  });
+</script>
+
+</body>
